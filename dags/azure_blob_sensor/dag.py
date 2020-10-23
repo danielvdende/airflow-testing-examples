@@ -13,8 +13,9 @@ def do_magic(**context):
 
 data_arrival_sensor = WasbBlobSensor(
     task_id="data_arrival_sensor",
-    container_name="landing_zone",
-    blob_name="raw_data.csv"
+    container_name="landing",
+    blob_name="raw_data.csv",
+    wasb_conn_id="landing_conn"
 )
 
 data_has_arrived = BashOperator(task_id="data_has_arrived", bash_command="echo 'The data has arrived!' && sleep 5m", dag=dag)
