@@ -4,10 +4,10 @@ from airflow import AirflowException
 from airflow.models import BaseOperator
 from airflow.utils.decorators import apply_defaults
 from msrestazure.azure_exceptions import CloudError
-import os
-import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
-from data_factory.data_factory_hook import AzureDataFactoryHook
+# import os
+# import sys
+# sys.path.append(os.path.join(os.path.dirname(__file__), '..'))
+from .data_factory_hook import AzureDataFactoryHook
 
 BASE_RUN_URL = (
     "https://adf.azure.com/monitoring"
@@ -37,8 +37,8 @@ class TriggerDataFactoryRunOperator(BaseOperator):
             resource_group_name: str,
             factory_name: str,
             pipeline_name: str,
-            pipeline_parameters: Optional[Dict[str, Any]],
-            polling_period_seconds: 300,
+            pipeline_parameters: Optional[Dict[str, Any]]={},
+            polling_period_seconds=300,
             *args,
             **kwargs,
     ):
