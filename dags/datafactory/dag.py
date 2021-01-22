@@ -17,5 +17,5 @@ trigger_data_factory_run = TriggerDataFactoryRunOperator(task_id="trigger_data_f
                                                          subscription_id=subscription_id,
                                                          adf_sp_connection_id="azure_data_factory",
                                                          pipeline_name="copyPipeline",
-                                                         resource_group_name="abnairflowazure-20631bd75d7412",
+                                                         resource_group_name="daniel-abnairflowazure-20631bd",
                                                          factory_name="adf20631bd75d")

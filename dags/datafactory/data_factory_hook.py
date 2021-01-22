@@ -1,5 +1,5 @@
 from airflow.hooks.base_hook import BaseHook
-from azure.common.credentials import ServicePrincipalCredentials
+from azure.identity import ClientSecretCredential
 from azure.mgmt.datafactory import DataFactoryManagementClient
 
 
@@ -20,7 +20,7 @@ class AzureDataFactoryHook(BaseHook):
         self.client = self.get_conn()
 
     def get_conn(self) -> DataFactoryManagementClient:
-        credentials = ServicePrincipalCredentials(
-            client_id=self.conn.login, secret=self.conn.password, tenant=self.tenant_id
+        credentials = ClientSecretCredential(
+            client_id=self.conn.login, client_secret=self.conn.password, tenant_id=self.tenant_id
         )
         return DataFactoryManagementClient(credentials, self.subscription_id)
