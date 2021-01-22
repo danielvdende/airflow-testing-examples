@@ -9,7 +9,7 @@ sys.path.append(os.path.normpath(os.path.join(SCRIPT_DIR, PACKAGE_PARENT)))
 
 from datafactory.trigger_data_factory_run_operator import TriggerDataFactoryRunOperator
 
-dag = DAG(dag_id="datafactory_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@daily")
+dag = DAG(dag_id="datafactory_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@once")
 subscription_id="5ddf05c0-b972-44ca-b90a-3e49b5de80dd"
 
 trigger_data_factory_run = TriggerDataFactoryRunOperator(task_id="trigger_data_factory_run",

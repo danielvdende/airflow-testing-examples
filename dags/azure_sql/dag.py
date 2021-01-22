@@ -3,7 +3,7 @@ from airflow.models import DAG
 
 from airflow.operators.mssql_operator import MsSqlOperator
 
-dag = DAG(dag_id="azure_sql_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@daily")
+dag = DAG(dag_id="azure_sql_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@once")
 
 create_table_sql = """
 IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name='cars') CREATE TABLE cars(

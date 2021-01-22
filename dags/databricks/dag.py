@@ -2,7 +2,7 @@ import airflow.utils.dates
 from airflow.contrib.operators.databricks_operator import DatabricksSubmitRunOperator, DatabricksRunNowOperator
 from airflow.models import DAG
 
-dag = DAG(dag_id="databricks_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@daily")
+dag = DAG(dag_id="databricks_integration", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@once")
 
 notebook_job_config = {
     "name": "My_cool_task",

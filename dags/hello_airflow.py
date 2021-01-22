@@ -3,7 +3,7 @@ from airflow.models import DAG
 from airflow.operators.bash_operator import BashOperator
 from airflow.operators.python_operator import PythonOperator
 
-dag = DAG(dag_id="hello_airflow", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@daily")
+dag = DAG(dag_id="hello_airflow", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@once")
 
 
 def do_magic(**context):

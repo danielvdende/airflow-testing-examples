@@ -4,7 +4,7 @@ from airflow.operators.bash_operator import BashOperator
 
 from airflow.contrib.sensors.wasb_sensor import WasbBlobSensor, WasbPrefixSensor
 
-dag = DAG(dag_id="azure_blob_sensor", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@daily")
+dag = DAG(dag_id="azure_blob_sensor", start_date=airflow.utils.dates.days_ago(3), schedule_interval="@once")
 
 
 data_arrival_sensor = WasbBlobSensor(
