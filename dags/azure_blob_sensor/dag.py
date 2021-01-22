@@ -11,7 +11,7 @@ data_arrival_sensor = WasbBlobSensor(
     task_id="data_arrival_sensor",
     container_name="landing",
     blob_name="raw_data.csv",
-    wasb_conn_id="landing_conn",
+    wasb_conn_id="blob_default",
     poke_interval=60,
     timeout=60*60*24
 )
@@ -20,7 +20,7 @@ data_file_prefix_sensor = WasbPrefixSensor(
     task_id="data_file_prefix_sensor",
     container_name="landing",
     prefix="raw_",
-    wasb_conn_id="landing_conn",
+    wasb_conn_id="blob_default",
     poke_interval=60,
     timeout=60*60*24
 )
